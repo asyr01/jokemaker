@@ -21,3 +21,14 @@ body {
   background-position: left center;
   background-repeat: no-repeat;
 }
+
+button {
+}
+
+/* Media Query: Tablet or Smaller */
+@media screen and (max-width: 1000px) {
+  .container {
+    background-size: cover;
+    background-position: center center;
+  }
+}
