@@ -8,9 +8,9 @@ const VoiceRSS={speech:function(e){this._validate(e),this._request(e)},_validate
 // function test(){
 //     VoiceRSS.speech({
 //         key: '0f78ec4752f94023a69219242882cb4d',
-//         src: `Hola, world`,
-//         hl: 'es-es',
-//         r: 0,
+//         src: ``,
+//         hl: 'en-us',
+//         r: -3,
 //         c: 'mp3',
 //         f: '44hz_16bit_stereo',
 //         ssml: false
@@ -23,11 +23,17 @@ const VoiceRSS={speech:function(e){this._validate(e),this._request(e)},_validate
 
 // Get Jokes from API
 async function getJokes() {
-    const apiUrl = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single';
+    let joke = '';
+    const apiUrl = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit';
     try{
        const response = await fetch(apiUrl);
        const data = await response.json();
-       console.log(data);
+       if(data.setup) {
+           joke = `${data.setup} ... ${data.delivery}`;
+       } else {
+           joke = data.joke;
+       }
+       console.log(joke);
     }catch(err){
         // Give error to me!
         console.log('Whooops, error',err);
