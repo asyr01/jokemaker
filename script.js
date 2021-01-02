@@ -23,8 +23,11 @@ const VoiceRSS={speech:function(e){this._validate(e),this._request(e)},_validate
 
 // Get Jokes from API
 async function getJokes() {
+    const apiUrl = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single';
     try{
-     
+       const response = await fetch(apiUrl);
+       const data = await response.json();
+       console.log(data);
     }catch(err){
         // Give error to me!
         console.log('Whooops, error',err);
