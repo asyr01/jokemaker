@@ -11,16 +11,13 @@ const VoiceRSS={speech:function(e){this._validate(e),this._request(e)},_validate
             key: '0f78ec4752f94023a69219242882cb4d',
             src: joke,
             hl: 'en-us',
-            r: -3,
+            r: 0,
             c: 'mp3',
             f: '44hz_16bit_stereo',
             ssml: false
         });
 }
  
-
-
-
 // Get Jokes from API
 async function getJokes() {
     let joke = '';
@@ -40,4 +37,5 @@ async function getJokes() {
     }
 }
 
-getJokes();
+// Event Listeners
+button.addEventListener('click', getJokes);
